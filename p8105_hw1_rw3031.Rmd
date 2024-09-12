@@ -9,10 +9,15 @@ output: github_document
 
 Installation of package palmerpenguins
 
+##Describe the penguin dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
+str(penguins)
+nrow(penguins)
+ncol(penguins)
+mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
+There are 8 variables in the penguin dataset.
+The penguins data set contains 8 columns and 344 rows. 
+The mean flipper length is 200.9152.
 
-the data in this dataset, including names / values of important variables
-the size of the dataset (using nrow and ncol)
-the mean flipper length
