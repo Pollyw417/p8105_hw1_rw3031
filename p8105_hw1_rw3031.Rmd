@@ -26,4 +26,32 @@ The mean flipper length is 200.9152.
 library(ggplot2)
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ```
+# Problem 2
+
+create the data frame
+```{r}
+library(tidyverse)
+df_p2 = tibble(
+  random_value = rnorm(n=10, mean=1),
+  value_positive = value>0,
+  char = c("a","b","c","d","e","f","g","h","i","j"),
+  factor = c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1")
+  )
+```
+
+Obtain the mean of the variables 
+```{r}
+mean(pull(df_p2,random_value))
+mean(pull(df_p2,value_positive))
+mean(pull(df_p2,char))
+mean(pull(df_p2,factor))
+```
+We can only obtain the mean for logical and numeric variables. 
+For character and factor variables, we cannot obtain their mean. 
+
+```{r}
+as.numeric(pull(df_p2,value_positive))
+as.numeric(pull(df_p2,char))
+as.numeric(pull(df_p2,factor))
+```
 
