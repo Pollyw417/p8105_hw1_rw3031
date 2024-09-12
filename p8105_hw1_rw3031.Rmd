@@ -21,3 +21,9 @@ There are 8 variables in the penguin dataset.
 The penguins data set contains 8 columns and 344 rows. 
 The mean flipper length is 200.9152.
 
+##Scatterplot 
+```{r}
+library(ggplot2)
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+```
+
