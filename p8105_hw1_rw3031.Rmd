@@ -1,0 +1,18 @@
+---
+title: "p8105_hw1_rw3031"
+author: "Polly Wu (rw3031)"
+date: "2024-09-12"
+output: github_document
+---
+
+# Problem 1
+
+Installation of package palmerpenguins
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+the data in this dataset, including names / values of important variables
+the size of the dataset (using nrow and ncol)
+the mean flipper length
