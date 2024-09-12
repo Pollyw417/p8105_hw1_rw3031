@@ -31,9 +31,12 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)
 create the data frame
 ```{r}
 library(tidyverse)
+```
+
+```{r}
 df_p2 = tibble(
   random_value = rnorm(n=10, mean=1),
-  value_positive = value>0,
+  value_positive = random_value>0,
   char = c("a","b","c","d","e","f","g","h","i","j"),
   factor = c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1")
   )
@@ -49,9 +52,9 @@ mean(pull(df_p2,factor))
 We can only obtain the mean for logical and numeric variables. 
 For character and factor variables, we cannot obtain their mean. 
 
-```{r}
+```{r eval=FALSE}
 as.numeric(pull(df_p2,value_positive))
 as.numeric(pull(df_p2,char))
 as.numeric(pull(df_p2,factor))
 ```
-
+The transformation of the character and factor variables return NA. 
