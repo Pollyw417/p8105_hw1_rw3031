@@ -7,9 +7,9 @@ output: github_document
 
 # Problem 1
 
-Installation of package palmerpenguins
+I installed the package palmerpenguins. 
 
-##Describe the penguin dataset
+## Describe the penguin dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
 str(penguins)
@@ -17,18 +17,19 @@ nrow(penguins)
 ncol(penguins)
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
-There are 8 variables in the penguin dataset.
+There are 8 variables in the penguin dataset. Species is a factor variable with 3 levels, island is a factor variable with 3 levels, bill_length_mm is a numeric variable, flipper_length_mm is a numeric variable, body_mass_g is a numeric variable, sex is a factor with 2 levels, and year is a numeric variable. 
 The penguins data set contains 8 columns and 344 rows. 
 The mean flipper length is 200.9152.
 
-##Scatterplot 
+## Scatterplot 
 ```{r}
 library(ggplot2)
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ```
+
 # Problem 2
 
-create the data frame
+## Create the data frame
 ```{r}
 library(tidyverse)
 ```
@@ -42,7 +43,7 @@ df_p2 = tibble(
   )
 ```
 
-Obtain the mean of the variables 
+## Obtain the mean of the variables 
 ```{r}
 mean(pull(df_p2,random_value))
 mean(pull(df_p2,value_positive))
@@ -52,6 +53,7 @@ mean(pull(df_p2,factor))
 We can only obtain the mean for logical and numeric variables. 
 For character and factor variables, we cannot obtain their mean. 
 
+## Convert to numeric
 ```{r eval=FALSE}
 as.numeric(pull(df_p2,value_positive))
 as.numeric(pull(df_p2,char))
