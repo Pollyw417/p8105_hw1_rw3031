@@ -12,14 +12,12 @@ I installed the package palmerpenguins.
 ## Describe the penguin dataset
 ```{r}
 data("penguins", package = "palmerpenguins")
-str(penguins)
-nrow(penguins)
-ncol(penguins)
-mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
-There are 8 variables in the penguin dataset. Species is a factor variable with 3 levels, island is a factor variable with 3 levels, bill_length_mm is a numeric variable, flipper_length_mm is a numeric variable, body_mass_g is a numeric variable, sex is a factor with 2 levels, and year is a numeric variable. 
-The penguins data set contains 8 columns and 344 rows. 
-The mean flipper length is 200.9152.
+The variables in the penguins dataset include `r names(penguins)`.
+
+The penguins dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. 
+
+The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
 ## Scatterplot 
 ```{r}
@@ -36,7 +34,7 @@ library(tidyverse)
 
 ```{r}
 df_p2 = tibble(
-  random_value = rnorm(n=10, mean=1),
+  random_value = rnorm(n=10, mean=0, sd=1),
   value_positive = random_value>0,
   char = c("a","b","c","d","e","f","g","h","i","j"),
   factor = c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1")
