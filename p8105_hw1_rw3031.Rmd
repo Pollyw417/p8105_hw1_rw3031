@@ -37,7 +37,7 @@ df_p2 = tibble(
   random_value = rnorm(n=10, mean=0, sd=1),
   value_positive = random_value>0,
   char = c("a","b","c","d","e","f","g","h","i","j"),
-  factor = c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1")
+  factor = factor(c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1"))
   )
 ```
 
@@ -49,7 +49,7 @@ mean(pull(df_p2,char))
 mean(pull(df_p2,factor))
 ```
 We can only obtain the mean for logical and numeric variables. 
-For character and factor variables, we cannot obtain their mean. 
+For character and factor variables, we cannot obtain their mean and R return NA. 
 
 ## Convert to numeric
 ```{r eval=FALSE}
@@ -57,4 +57,4 @@ as.numeric(pull(df_p2,value_positive))
 as.numeric(pull(df_p2,char))
 as.numeric(pull(df_p2,factor))
 ```
-The transformation of the character and factor variables return NA. 
+The logical variable is converted into 0 and 1 since it is binary. The transformation of the character variables return NA. Character variable cannot be convereted into numeric values since their values does not represent a number. In this case, we cannot obtain the mean of the character variable  since the numeric calculation cannot be performed on those values. The factor variable has been converted into numbers that represent the factor labels representing the levels within the factor, which is meaningless. Thus the mean returned based on those numeric values is also meaningless. 
