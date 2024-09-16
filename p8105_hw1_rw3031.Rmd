@@ -22,22 +22,22 @@ The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 ## Scatterplot 
 ```{r}
 library(ggplot2)
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, 
+                     color = species)) + geom_point()
 ```
 
 # Problem 2
 
 ## Create the data frame
-```{r}
-library(tidyverse)
-```
 
-```{r}
+```{r message=FALSE}
+library(tidyverse)
 df_p2 = tibble(
   random_value = rnorm(n=10, mean=0, sd=1),
   value_positive = random_value>0,
   char = c("a","b","c","d","e","f","g","h","i","j"),
-  factor = factor(c("level1", "level2","level3", "level1", "level2", "level3","level1", "level2", "level3", "level1"))
+  factor = factor(c("level1", "level2","level3", "level1", "level2", 
+                    "level3","level1", "level2", "level3", "level1"))
   )
 ```
 
@@ -52,9 +52,13 @@ We can only obtain the mean for logical and numeric variables.
 For character and factor variables, we cannot obtain their mean and R return NA. 
 
 ## Convert to numeric
-```{r eval=FALSE}
+```{r results='hide', warning = FALSE}
 as.numeric(pull(df_p2,value_positive))
 as.numeric(pull(df_p2,char))
 as.numeric(pull(df_p2,factor))
 ```
-The logical variable is converted into 0 and 1 since it is binary. The transformation of the character variables return NA. Character variable cannot be convereted into numeric values since their values does not represent a number. In this case, we cannot obtain the mean of the character variable  since the numeric calculation cannot be performed on those values. The factor variable has been converted into numbers that represent the factor labels representing the levels within the factor, which is meaningless. Thus the mean returned based on those numeric values is also meaningless. 
+The logical variable is converted into 0 and 1 since it is binary. Thus we can obtain the mean for the variable.
+
+The transformation of the character variables return NA. Character variable cannot be convereted into numeric values since their values does not represent a number. In this case, we cannot obtain the mean of the character variable  since the numeric calculation cannot be performed on those values. 
+
+The factor variable has been converted into numbers that represent the factor labels representing the levels within the factor, which is meaningless. Thus the mean returned based on those numeric values is also meaningless. 
